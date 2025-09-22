@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Egsspress Timer – Eierwekker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app" role="application" aria-label="Eierwekker">
+    <header>
+      <h1>🥚 Egsspress Timer</h1>
+      <div class="presets" aria-label="Snelle keuzes">
+        <button class="chip" data-min="3" aria-label="3 minuten">3m</button>
+        <button class="chip" data-min="5" aria-label="5 minuten">5m</button>
+        <button class="chip" data-min="7" aria-label="7 minuten">7m</button>
+        <button class="chip" data-min="10" aria-label="10 minuten">10m</button>
+      </div>
+    </header>
+
+    <section class="controls">
+      <div class="row wrap" aria-label="Kookstand">
+        <label style="min-width:90px">Kookstand</label>
+        <div class="presets" id="modes">
+          <button class="chip mode" data-mode="zacht" aria-label="Zacht gekookt">Zacht</button>
+          <button class="chip mode" data-mode="medium" aria-label="Medium gekookt">Medium</button>
+          <button class="chip mode" data-mode="hard" aria-label="Hard gekookt">Hard</button>
+        </div>
+        <div class="row" style="margin-left:auto">
+          <label for="eggSize">Maat</label>
+          <select id="eggSize" class="btn" aria-label="Eiermaat">
+            <option value="S">S</option>
+            <option value="M" selected>M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="timer-display" aria-live="polite">
+      <div id="timer" aria-label="Tijd">05:00</div>
+    </section>
+
+    <section class="controls">
+      <div class="row">
+        <label for="minutes">Minuten</label>
+        <input id="minutes" type="number" min="1" max="180" step="1" value="5" inputmode="numeric" aria-describedby="minutesHelp" />
+        <small id="minutesHelp" class="help">Kies 1–60 min</small>
+      </div>
+
+      <div class="row wrap" role="group" aria-label="Bediening">
+        <button id="startBtn" class="btn btn-primary">Start</button>
+        <button id="pauseBtn" class="btn">Pauze</button>
+        <button id="resetBtn" class="btn btn-danger">Reset</button>
+      </div>
+
+      <div id="status" class="status" aria-live="polite"></div>
+    </section>
+
+    <footer>
+      Tip: druk op <strong>Enter</strong> om te starten en op <strong>Spatie</strong> om te pauzeren/hernemen.
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
